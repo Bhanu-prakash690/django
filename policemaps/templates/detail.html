@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akronim">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aladin">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus">
+</head>
+
+<body style="background-color: rgb(234,43,135);">
+    <div class="container" style="margin-top: 27px;">
+        <h1 class="text-center" style="font-family: Arbutus, cursive;color: rgb(255,255,255);">Crime Details</h1>
+        <div class="row">
+            <div class="col-lg-8" style="height: 561px;padding-right: -8px;">
+                <div class="jumbotron" style="height: 559px;background-color: rgb(10,43,77);margin-bottom: 34px;padding-right: 26px;">
+                    <div><video width="563" height="315" controls="" style="width: 559px;margin-right: 3px;"><source type="video/webm" src="{{crime.video.url}}" poster="{{crime.image.url}}"><track kind="subtitles"></video>
+                        <p style="color: rgb(233,244,255);font-size: 38px;font-family: Aladin, cursive;margin-top: 13px;">{{crime.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="padding-left: 2px;">
+                <div class="jumbotron" style="height: 560px;background-color: rgb(11,41,72);"><img src="{{crime.image.url}}" width="122" height="117" style="width: 235px;height: 197px;">
+                    <ul class="list-group" style="margin-top: 25px;">
+                        <li class="list-group-item"><span>{{crime.latitude}}</span></li>
+                        <li class="list-group-item"><span>{{crime.longitude}}</span></li>
+                        <li class="list-group-item"><span>{{crime.display_name}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
