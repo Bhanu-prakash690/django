@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>TextBooks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+</head>
+
+<body style="background-position: top;background-size: contain;background-repeat: no-repeat;background-image: url(&quot;{% static 'assets/img/books-in-black-wooden-book-shelf-159711.jpg' %}&quot;);">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top" style="background-color: #ffffff;">
+        <div class="container-fluid"><a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'assets/img/book.png' %}" style="height: 65px;width: 59px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="{% url 'home' %}">HOME</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="https://rohit20001221.github.io/portfolio">ABOUT</a></li>
+                    {% if user.is_authenticated %}
+                      <li class="nav-item" role="presentation"><a class="nav-link active" href="{% url 'logout' %}">LOGOUT</a></li>
+                    {% else %}
+                      <li class="nav-item" role="presentation"><a class="nav-link active" href="{% url 'signup' %}">SIGN UP</a></li>
+                    {% endif %}
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="jumbotron" style="margin-top: 285px;background-color: rgba(233,236,239,0);">
+        <h1 class="text-center" style="color: rgb(255,255,255);font-size: 80px;">Get B.Tech Books for Free</h1>
+    </div>
+    <h1 class="text-center" style="color: rgb(255,255,255);background-color: #000000;padding: 75px;margin-top: 140px;margin-bottom: 0px;">Select You'r Stream</h1>
+    <div class="projects-clean">
+        <div class="container">
+            <div class="border rounded-0 shadow-sm intro"></div>
+            <div class="row projects">
+                <div class="col-sm-6 col-lg-4 item">
+                    <div class="shadow" style="padding-bottom: 20px;"><a href="{% url 'books' 'cse' %}"><img class="img-fluid" src="{% static 'assets/img/desk.jpg' %}"></a>
+                        <h3 class="name">CSE</h3>
+                        <p class="description">Get the free text books of CSE</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 item">
+                    <div class="shadow" style="padding-bottom: 20px;"><a href="{% url 'books' 'mech' %}"><img class="img-fluid" src="{% static 'assets/img/minibus.jpeg' %}"></a>
+                        <h3 class="name">MECH</h3>
+                        <p class="description">Get the free text books of MECH</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 item">
+                    <div class="shadow" style="padding-bottom: 20px;"><a href="{% url 'books' 'ece' %}"><img class="img-fluid" src="{% static 'assets/img/green-computer-circuit-board-159220.jpg' %}"></a>
+                        <h3 class="name">ECE</h3>
+                        <p class="description">Get the free text books of ECE</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 item">
+                    <div class="shadow" style="padding-bottom: 20px;"><a href="{% url 'books' 'eee' %}"><img class="img-fluid" src="{% static 'assets/img/eee.jpg' %}"></a>
+                        <h3 class="name">EEE</h3>
+                        <p class="description">Get the free text books of EEE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>College</h3>
+                        <ul>
+                            <li><a href="#">JNTUH CEJ</a></li>
+                            <li><a href="#">CSE</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Creator: Rohit</a></li>
+                            <li><a href="#">Phone: 8790588214</a></li>
+                            <li><a href="#">Email: rohit20001221@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Free Books</h3>
+                        <p>this is a website where users can download freely avaliable text books which are precribed in their b.tech circulum..</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright"></p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
