@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SignUP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/styles1.min.css' %}">
+
+</head>
+
+<body>
+    {% for message in messages %}
+        <div class="alert alert-danger text-center beautiful" role="alert"><strong>Warning!</strong> {{ message }}</div>
+    {% endfor %}
+    <div class="contact-clean" style="background-color: rgb(255,255,255);width:100%;height:100%">
+        <form class="shadow-lg" method="post" onsubmit="submitForm()">{% csrf_token %}
+            <h2 class="text-center">Signup</h2>
+            <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Name"></div>
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password1" id="pass1"  placeholder="Password"><small class="form-text text-danger" id='password_'></small></div>
+            <div class="form-group"><input class="form-control" type="password" name="password2" id="pass2" placeholder="Password(Repeat)"><small class="form-text text-danger" id='password_2'></small></div>
+            <div class="form-group"><input class="form-control" type="text" name="captca" placeholder="{{a}}+{{b}}"></div>
+            <div class="form-group"><button class="btn btn-primary" type="submit">SignUP</button></div>
+        </form>
+    </div>
+    <script>
+      var valid = false;
+
+      var password1 = $('#pass1');
+      var password2 = $('#pass2');
+      var danger = $('#password_');
+
+      password1.on('input', function(){
+        var letters = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+        //console.log();
+        if(password1.val().length < 8 || !(letters).test(document.querySelector('#pass1').value)){
+          danger.html("Invalid password must have 8 characters and alaphanumeric characters");
+        }else{
+          danger.html('');
+        }
+      })
+
+      password2.on('input', function(){
+        if(password1.val() != password2.val()){
+          $('#password_2').html('passwords didn\'t match');
+        }else{
+          $('#password_2').html(' ');
+          valid = true;
+        }
+      })
+
+      function submitForm(){
+        if(valid==false){
+          return false;
+        }
+      }
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
